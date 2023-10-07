@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 
 class NotesViewModel(val dao: NotesDao): ViewModel() {
-    var newNoteName = ""
+    var newNoteName = "New Note"
     var newNoteContent = ""
     val notes = dao.getAll()
     private val _navigateToNote = MutableLiveData<Long?>()
@@ -25,7 +25,7 @@ class NotesViewModel(val dao: NotesDao): ViewModel() {
         viewModelScope.launch {
             val note = dao.get(noteId)
             dao.delete(note.value!!)
-            //_navigateToList.value = true
+            _navigateToNote.value = null
         }
     }
     fun onNoteClicked(noteId: Long) {

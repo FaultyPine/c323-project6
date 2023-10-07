@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_noteFragment_to_noteViewFragment"
             app:destination="@id/noteViewFragment" />
+        <argument
+            android:name="noteId"
+            app:argType="long" />
     </fragment>
     <fragment
         android:id="@+id/noteViewFragment"

@@ -23,8 +23,7 @@ class NoteFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentNoteBinding.inflate(inflater, container, false)
         val view = binding.root
-        //val noteId = NoteFragmentArgs.fromBundle(requireArguments()).noteId
-        val noteId = 0L
+        val noteId = NoteFragmentArgs.fromBundle(requireArguments()).noteId
 
         val application = requireNotNull(this.activity).application
         val dao = NotesDatabase.getInstance(application).notesDao
