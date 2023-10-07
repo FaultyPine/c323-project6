@@ -25,6 +25,7 @@
                 android:layout_weight="40"
                 android:ems="10"
                 android:hint="Title"
+                android:text="@{viewModel.note.noteName}"
                 android:inputType="text" />
 
             <EditText
@@ -34,6 +35,7 @@
                 android:layout_weight="10"
                 android:ems="10"
                 android:hint="Description"
+                android:text="@{viewModel.note.noteContent}"
                 android:inputType="text" />
 
             <Button
@@ -42,6 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:text="Save"
+                android:onClick="@{() -> viewModel.updateNote()}"
                 app:cornerRadius="5dp" />
         </LinearLayout>
 
