@@ -31,10 +31,8 @@ class NoteViewFragment : Fragment() {
         val dao = NotesDatabase.getInstance(application).notesDao
         val viewModelFactory = NotesViewModelFactory(dao)
         val viewModel = ViewModelProvider(this, viewModelFactory)[NotesViewModel::class.java]
-
-        binding.bAddNote.setOnClickListener {
-            viewModel.addNote()
-        }
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
 
         val adapter = ItemAdapter(
             { noteId: Long -> viewModel.onNoteClicked(noteId) },

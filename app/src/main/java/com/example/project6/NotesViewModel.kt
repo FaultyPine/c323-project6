@@ -38,6 +38,7 @@ class NotesViewModel(val dao: NotesDao): ViewModel() {
     val notes = dao.getAll()
     private val _navigateToNote = MutableLiveData<Long?>()
     val navigateToNote = _navigateToNote
+
     fun addNote() {
         viewModelScope.launch {
             val note = Note()

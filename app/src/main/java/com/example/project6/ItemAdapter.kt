@@ -1,5 +1,6 @@
 package com.example.project6
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,11 +36,9 @@ class ItemAdapter(val onItemClicked: (noteId: Long) -> Unit, val onDeleteClicked
             }
         }
         fun bind(item: Note, onItemClicked: (taskId: Long) -> Unit, onDeleteClicked: (noteId: Long) -> Unit) {
-            //binding.task = item // TODO: he's using data binding here, we arent....
-            binding.bDeleteItem.setText("Delete")
+            binding.note = item
             binding.bDeleteItem.setOnClickListener { onDeleteClicked(item.noteId) }
-            binding.itemRoot.setOnClickListener( { onItemClicked(item.noteId) })
-            binding.itemText.setText(item.noteName)
+            binding.itemRoot.setOnClickListener { onItemClicked(item.noteId) }
         }
     }
 }

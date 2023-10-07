@@ -30,6 +30,8 @@ class NoteFragment : Fragment() {
 
         val viewModelFactory = EditNoteViewModelFactory(noteId, dao)
         val viewModel = ViewModelProvider(this, viewModelFactory)[EditNoteViewModel::class.java]
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
 
         return view
     }
