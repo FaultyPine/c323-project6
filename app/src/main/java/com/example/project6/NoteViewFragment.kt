@@ -25,7 +25,7 @@ class NoteViewFragment : Fragment() {
         val view = binding.root
         val application = requireNotNull(this.activity).application
         val dao = NotesDatabase.getInstance(application).notesDao
-        val viewModel = ViewModelProvider(this)[NotesViewModel::class.java]
+        val viewModel = NotesViewModelFactory(dao)
 
         return view
     }
