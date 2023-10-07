@@ -1,4 +1,4 @@
-# project6 Notes App
+# C323 Project 6 - Notes App
 
 User can create, track, modify, and delete notes that are saved on a local database.
 
@@ -8,12 +8,11 @@ Partners: Grayson Clark, Jake Morgenstern
 
 The following **required** functionality is completed:
 
-* [ ] User can add and delete notes in a main fragment
-* [ ] Notes are loaded & saved in a local database
-* [ ] RecyclerView, Adapter, data binding, DiffUtil all used
-* [ ] Delete button shows confirmation window
-* [ ] User can edit notes (title and description) by clicking on them
-* [ ] 
+* [x] User can add and delete notes in a main fragment
+* [x] Notes are loaded & saved in a local database
+* [x] RecyclerView, Adapter, data binding, DiffUtil all used
+* [x] Delete button shows confirmation window
+* [x] User can edit notes (title and description) by clicking on them
 
 The following **extensions** are implemented:
 
@@ -23,7 +22,7 @@ The following **extensions** are implemented:
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:
+Here's a walkthrough of implemented features:
 
 <img src='video-walkthrough.gif' title='Video Walkthrough' width='50%' alt='Video Walkthrough' />
 
@@ -32,8 +31,8 @@ Converted with [CloudConvert](https://cloudconvert.com/mp4-to-gif)
 
 ## Notes
 
-Had lots of trouble getting the database to work properly - ended up getting it to work with some modifications.
-Partners: Grayson Clark, Jake Morgenstern
+- Had lots of trouble getting the database to work properly - ended up getting it to work with some modifications.
+- Partners: Grayson Clark, Jake Morgenstern
 
 ## License
 
