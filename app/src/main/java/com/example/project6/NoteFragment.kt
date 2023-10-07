@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -35,6 +36,13 @@ class NoteFragment : Fragment() {
         val viewModel = ViewModelProvider(this, viewModelFactory)[EditNoteViewModel::class.java]
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
+
+        binding.editTitle.addTextChangedListener{
+            viewModel.note.value!!.noteName = binding.editTitle.text.toString()
+        }
+        binding.editDescription.addTextChangedListener {
+            viewModel.note.value!!.noteContent = binding.editDescription.text.toString()
+        }
 
         viewModel.navigateToList.observe(viewLifecycleOwner, Observer { navigate ->
             if (navigate) {

@@ -18,9 +18,7 @@ class EditNoteViewModel(noteId: Long, val dao: NotesDao): ViewModel() {
     val navigateToList = _navigateToList
     fun updateNote() {
         viewModelScope.launch {
-            Log.d("NOTE", "Note ID: ${note.value!!.noteId}, Note Name: ${note.value!!.noteName}")
             dao.update(note.value!!)
-            Log.d("NOTE", "Note ID: ${note.value!!.noteId}, Note Name: ${note.value!!.noteName}")
             _navigateToList.value = true
         }
     }

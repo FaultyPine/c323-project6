@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:text="Save"
-                android:onClick="@{() -> viewModel.updateNote()}"
+                android:onClick="@{() -> viewModel.updateNote() }"
                 app:cornerRadius="5dp" />
         </LinearLayout>
 
