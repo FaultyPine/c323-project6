@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import com.example.project6.databinding.FragmentNoteViewBinding
 
 /**
@@ -22,8 +23,9 @@ class NoteViewFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentNoteViewBinding.inflate(inflater, container, false)
         val view = binding.root
-
-
+        val application = requireNotNull(this.activity).application
+        val dao = NotesDatabase.getInstance(application).notesDao
+        val viewModel = ViewModelProvider(this)[NotesViewModel::class.java]
 
         return view
     }
