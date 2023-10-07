@@ -1,5 +1,6 @@
 package com.example.project6
 
+import android.util.Log
 import androidx.annotation.Nullable
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,6 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
@@ -44,7 +46,8 @@ class NotesViewModel(val dao: NotesDao): ViewModel() {
             val note = Note()
             note.noteName = newNoteName
             note.noteContent = newNoteContent
-            dao.insert(note)
+            val id = dao.insert(note)
+            _navigateToNote.value = id
         }
     }
     fun deleteNote(noteId: Long)
