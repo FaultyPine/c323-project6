@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import com.example.project6.databinding.FragmentNoteViewBinding
+import kotlinx.coroutines.launch
 
 /**
  * A simple [Fragment] subclass.
@@ -25,7 +27,17 @@ class NoteViewFragment : Fragment() {
         val view = binding.root
         val application = requireNotNull(this.activity).application
         val dao = NotesDatabase.getInstance(application).notesDao
-        val viewModel = NotesViewModelFactory(dao)
+        val viewModelFactory = NotesViewModelFactory(dao)
+        val viewModel = ViewModelProvider(this, viewModelFactory).get(NotesViewModel::class.java)
+
+        binding.bAddNote.setOnClickListener {
+            viewModel.addNote()
+        }
+
+        val adapter = ItemAdapter(
+            { noteId: Long -> viewModel.onNoteClicked(noteId) },
+            {noteId: Long -> viewModel.deleteNote(noteId) }
+        )
 
         return view
     }

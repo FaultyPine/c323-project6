@@ -20,6 +20,14 @@ class NotesViewModel(val dao: NotesDao): ViewModel() {
             dao.insert(note)
         }
     }
+    fun deleteNote(noteId: Long)
+    {
+        viewModelScope.launch {
+            val note = dao.get(noteId)
+            dao.delete(note.value!!)
+            //_navigateToList.value = true
+        }
+    }
     fun onNoteClicked(noteId: Long) {
         _navigateToNote.value = noteId
     }
